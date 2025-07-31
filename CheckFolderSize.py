@@ -32,7 +32,7 @@ def list_folders_with_size(path, max_workers=4):
         if os.path.isdir(os.path.join(path, name))
     ]
     total = len(folders)
-    print(f"\nСканирование {total} папок...\n")
+    print(f"\nScanning {total} folders...\n")
 
     folder_sizes = []
     done = 0
@@ -56,18 +56,17 @@ def list_folders_with_size(path, max_workers=4):
 
     folder_sizes.sort(key=lambda x: x[1], reverse=True)
 
-    print("Папки больше 50 МБ (по убыванию):\n")
+    print("Folders larger than 50 MB (descending order):\n")
     for name, size in folder_sizes:
-        # name теперь корректно печатается
         print(f"{name:<30} {size / (1024**2):8.2f} MB")
 
 if __name__ == "__main__":
     while True:
-        target = input("\nВведите путь к папке для сканирования (или 'exit' для выхода): ").strip()
+        target = input("\nEnter the path to the folder to scan (or 'exit' to exit): ").strip()
         if target.lower() == 'exit':
-            print("Выход из программы.")
+            print("Exiting the program.")
             break
         if not os.path.isdir(target):
-            print("Ошибка: путь не существует или не является папкой.")
+            print("Error: The path does not exist or is not a folder.")
             continue
         list_folders_with_size(target, max_workers=4)
