@@ -1,27 +1,51 @@
-# CheckFolderSize.py
+# Folder Size Scanner
 
-> **Утилита** для быстрого и удобного подсчёта размера подпапок в указанной директории  
-> С параллельным обходом, прогресс‑баром, фильтрацией по порогу и поддержкой кириллицы в Windows.
+![Python](https://img.shields.io/badge/python-3.x-blue.svg)
 
----
-
-## 🔍 Обзор
-
-`CheckFolderSize.py` — консольный скрипт на Python 3.7+, который:
-
-- Сканирует **прямые подпапки** указанного каталога.
-- Считает **общий размер** каждого каталога (рекурсивно, через `os.scandir`).
-- Запускает подсчёт **параллельно** в несколько потоков (через `ThreadPoolExecutor`) для ускорения.
-- Выводит **интерактивный прогресс** (перезаписываемая строка в консоли).
-- Фильтрует и показывает в итоговом списке только папки **больше 50 МБ** (настройка порога возможна).
-- Автоматически переводит консоль Windows в UTF‑8, чтобы корректно отображать имена папок на русском и других языках.
+A simple command-line utility to scan all immediate subfolders of a given directory and list those whose total size exceeds 50 MB, sorted in descending order.
 
 ---
 
-## 🚀 Возможности
+## 📋 Table of Contents
 
-- **Многопоточный подсчёт**: ускоряет анализ на многопроцессорных системах и SSD-дисках.
-- **Прогресс‑бар** в формате `[текущий/всего] ИмяПапки` без заваливания экрана лишним выводом.
-- **Фильтрация по размеру**: порог 50 МБ задаётся в коде, легко перенастраивается или делается вводимым.
-- **Поддержка Unicode**: кириллица и любые другие символы безопасно отображаются в консоли Windows.
-- **Надёжность**: все ошибки доступа к файлам и папкам игнорируются, сканирование не прерывается.
+- [Features](#features)  
+- [Prerequisites](#prerequisites)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+
+---
+
+## 🔍 Features
+
+- Recursively computes the size of each subfolder (excluding symbolic links).  
+- Uses a thread pool (via `concurrent.futures.ThreadPoolExecutor`) for parallel scanning.  
+- Skips over files or directories that raise errors (permissions, race conditions, etc.).  
+- Prints progress in real time.  
+- Filters and displays only those folders whose size ≥ 50 MB.  
+- Cross-platform support: ensures UTF-8 console encoding on Windows.  
+
+---
+
+## ⚙️ Prerequisites
+
+- Python **3.6** or higher  
+- Standard library only (no external dependencies)  
+
+---
+
+## 🚀 Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/KiriVoll/CheckFolderSize.git
+   cd folder-size-scanner
+
+## 💻 Usage
+
+1. Run the script:
+   ```bash
+   python CheckFolderSize.py
+
+At the prompt, enter the absolute or relative path to the directory you want to scan.
+
+Type exit and press Enter to quit.
