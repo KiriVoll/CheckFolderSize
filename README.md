@@ -6,16 +6,16 @@ A simple command-line utility to scan all immediate subfolders of a given direct
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Features](#features)  
-- [Prerequisites](#prerequisites)  
-- [Installation](#installation)  
-- [Usage](#usage)  
+* [Features](#features)  
+* [Prerequisites](#prerequisites)  
+* [Installation](#installation)  
+* [Usage](#usage)  
 
 ---
 
-## 🔍 Features
+## Features
 
 - Recursively computes the size of each subfolder (excluding symbolic links).  
 - Uses a thread pool (via `concurrent.futures.ThreadPoolExecutor`) for parallel scanning.  
@@ -26,21 +26,21 @@ A simple command-line utility to scan all immediate subfolders of a given direct
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 - Python **3.6** or higher  
 - Standard library only (no external dependencies)  
 
 ---
 
-## 🚀 Installation
+## Installation
 
 1. Clone this repository:
    ```bash
    git clone https://github.com/KiriVoll/CheckFolderSize.git
    cd folder-size-scanner
 
-## 💻 Usage
+## Usage
 
 1. Run the script:
    ```bash
