@@ -4,7 +4,6 @@ import os
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Для Windows — устанавливаем консоль в UTF‑8, чтобы print() не брякался на русских буквах:
 if os.name == 'nt':
     import ctypes
     ctypes.windll.kernel32.SetConsoleCP(65001)
